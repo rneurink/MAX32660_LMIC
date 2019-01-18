@@ -1,0 +1,8 @@
+MAKECMDGOALS=release  
+include Makefile  
+MXC_OPTIMIZE_CFLAGS=-Os  
+LDFLAGS+= -Wl,--gc-sections,--print-memory-usage  
+CFLAGS+= -ffunction-sections  
+CFLAGS+= -fdata-sections  
+# Disable assertion checking for release  
+PROJ_CFLAGS := $(filter-out -DMXC_ASSERT_ENABLE,$(PROJ_CFLAGS))  
